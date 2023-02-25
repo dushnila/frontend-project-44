@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { askAndHello } from '../src/cli.js';
+
+import askAndHello from '../src/cli.js';
 
 askAndHello();
-
