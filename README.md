@@ -8,3 +8,7 @@ BRAIN-EVEN game:
 
 BRAIN-CALC game: 
 [![asciicast](https://asciinema.org/a/K70tPDNq2nAhaB1uqtzUtyjfj.svg)](https://asciinema.org/a/K70tPDNq2nAhaB1uqtzUtyjfj)
+
+
+BRAIN-GCD game:
+[![asciicast](https://asciinema.org/a/TwULu8nCc3e2jKmXYaCQ4vThp.svg)](https://asciinema.org/a/TwULu8nCc3e2jKmXYaCQ4vThp)
