@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import genericLogic from '../src/index.js';
 import gcdGame from '../games/gcd.js';
 
