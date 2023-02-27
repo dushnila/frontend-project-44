@@ -1,7 +1,6 @@
 #!/usr/bin/env node
+import genericLogic from '../src/index.js';
+import isEvenGame from '../games/even.js';
 
-import askAndHello from '../src/cli.js';
-import isEven from '../src/even.js';
-
-const name = askAndHello();
-isEven(name);
+const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+genericLogic(task, isEvenGame);
