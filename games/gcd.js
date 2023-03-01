@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import randomiser from '../src/func.js';
 
 const gcdFinder = (number1, number2) => {
@@ -18,9 +17,9 @@ const gcdFinder = (number1, number2) => {
 const game = () => {
   const randomNumber1 = randomiser(0, 101);
   const randomNumber2 = randomiser(0, 101);
-  const answer = readlineSync.question(`Question: ${randomNumber1} ${randomNumber2}\nYour answer: `);
+  const generateQuestion = `${randomNumber1} ${randomNumber2}`;
   const realAnswer = String(gcdFinder(randomNumber1, randomNumber2));
-  return [answer, realAnswer];
+  return [generateQuestion, realAnswer];
 };
 
 export default game;

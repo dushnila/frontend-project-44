@@ -1,5 +1,4 @@
 /* eslint-disable no-eval */
-import readlineSync from 'readline-sync';
 import randomiser from '../src/func.js';
 
 const primeCheck = (num) => {
@@ -13,10 +12,10 @@ const primeCheck = (num) => {
 };
 
 const game = () => {
-  const randomNumber = randomiser(0, 100);
-  const answer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
+  const randomNumber = randomiser(0, 101);
+  const generateQuestion = `${randomNumber}`;
   const realAnswer = primeCheck(randomNumber);
-  return [answer, realAnswer];
+  return [generateQuestion, realAnswer];
 };
 
 export default game;

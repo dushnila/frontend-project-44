@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import randomiser from '../src/func.js';
 
 const makeMathRow = (firstValue, ratio, rowLength) => {
@@ -22,12 +21,12 @@ const extractRandomNumber = (arr) => {
 
 const game = () => {
   const randomFirstValue = randomiser(0, 100);
-  const randomRatio = randomiser(0, 10);
+  const randomRatio = randomiser(1, 10);
   const randomRowLength = randomiser(5, 11);
   const generatedRow = makeMathRow(randomFirstValue, randomRatio, randomRowLength);
   const [realAnswer, questionRow] = extractRandomNumber(generatedRow);
-  const answer = readlineSync.question(`Question: ${questionRow}\nYour answer: `);
-  return [answer, realAnswer];
+  const generateQuestion = `Question: ${questionRow}`;
+  return [generateQuestion, realAnswer];
 };
 
 export default game;
