@@ -16,3 +16,6 @@ BRAIN-GCD game:
 
 BRAIN-PROGRESSION game:
 [![asciicast](https://asciinema.org/a/Y7oslwAb67wUCeFt7WsmQSfda.svg)](https://asciinema.org/a/Y7oslwAb67wUCeFt7WsmQSfda)
+
+BRAIN-PRIME game:
+[![asciicast](https://asciinema.org/a/oWBhYf5soU0ngkjcrJr0I7FlI.svg)](https://asciinema.org/a/oWBhYf5soU0ngkjcrJr0I7FlI)
