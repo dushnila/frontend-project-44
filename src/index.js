@@ -1,16 +1,15 @@
 import readlineSync from 'readline-sync';
-import askAndHello from './cli.js';
 
-const genericLogic = (task, game) => {
-  const name = askAndHello();
-  let numberOfquestions = 3;
+const roundsCount = 3;
+
+const runEngine = (task, makeRound) => {
+  const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name?');
   console.log(task);
-  while (numberOfquestions > 0) {
-    const [generateQuestion, realAnswer] = game();
+  for (let i = 0; i < roundsCount; i += 1) {
+    const [generateQuestion, realAnswer] = makeRound();
     const answer = readlineSync.question(`Question: ${generateQuestion}\nYour answer: `);
     if (answer === realAnswer) {
       console.log('Correct!');
-      numberOfquestions -= 1;
     } else {
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${realAnswer}".
 Let's try again, ${name}!`);
@@ -20,4 +19,4 @@ Let's try again, ${name}!`);
   console.log(`Congratulations, ${name}!`);
 };
 
-export default genericLogic;
+export default runEngine;
