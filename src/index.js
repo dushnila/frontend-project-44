@@ -4,6 +4,7 @@ const roundsCount = 3;
 
 const runEngine = (task, makeRound) => {
   const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name?');
+  console.log(`Hello, ${name}!`);
   console.log(task);
   for (let i = 0; i < roundsCount; i += 1) {
     const [generateQuestion, realAnswer] = makeRound();
