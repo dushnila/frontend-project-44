@@ -1,5 +1,5 @@
 /* eslint-disable no-eval */
-import randomiser from '../src/func.js';
+import getRandomInRange from '../utils.js';
 
 const primeCheck = (num) => {
   if (num === 1) { return 'no'; }
@@ -12,7 +12,7 @@ const primeCheck = (num) => {
 };
 
 const game = () => {
-  const randomNumber = randomiser(0, 101);
+  const randomNumber = getRandomInRange(0, 101);
   const generateQuestion = `${randomNumber}`;
   const realAnswer = primeCheck(randomNumber);
   return [generateQuestion, realAnswer];

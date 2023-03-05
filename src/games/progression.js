@@ -1,4 +1,4 @@
-import randomiser from '../src/func.js';
+import getRandomInRange from '../utils.js';
 
 const makeMathRow = (firstValue, ratio, rowLength) => {
   const arr = [];
@@ -11,7 +11,7 @@ const makeMathRow = (firstValue, ratio, rowLength) => {
 };
 
 const extractRandomNumber = (arr) => {
-  const randomIndex = randomiser(0, arr.length);
+  const randomIndex = getRandomInRange(0, arr.length);
   const extractedValue = `${arr[randomIndex]}`;
   const newArr = arr;
   newArr[randomIndex] = '..';
@@ -20,9 +20,9 @@ const extractRandomNumber = (arr) => {
 };
 
 const game = () => {
-  const randomFirstValue = randomiser(0, 100);
-  const randomRatio = randomiser(1, 10);
-  const randomRowLength = randomiser(5, 11);
+  const randomFirstValue = getRandomInRange(0, 100);
+  const randomRatio = getRandomInRange(1, 10);
+  const randomRowLength = getRandomInRange(5, 11);
   const generatedRow = makeMathRow(randomFirstValue, randomRatio, randomRowLength);
   const [realAnswer, questionRow] = extractRandomNumber(generatedRow);
   const generateQuestion = `Question: ${questionRow}`;

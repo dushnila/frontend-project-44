@@ -1,4 +1,4 @@
-import randomiser from '../src/func.js';
+import getRandomInRange from '../utils.js';
 
 const gcdFinder = (number1, number2) => {
   let num1 = number1;
@@ -15,8 +15,8 @@ const gcdFinder = (number1, number2) => {
 };
 
 const game = () => {
-  const randomNumber1 = randomiser(0, 101);
-  const randomNumber2 = randomiser(0, 101);
+  const randomNumber1 = getRandomInRange(0, 101);
+  const randomNumber2 = getRandomInRange(0, 101);
   const generateQuestion = `${randomNumber1} ${randomNumber2}`;
   const realAnswer = String(gcdFinder(randomNumber1, randomNumber2));
   return [generateQuestion, realAnswer];
