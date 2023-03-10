@@ -1,3 +1,4 @@
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
 const makeMathRow = (firstValue, ratio, rowLength) => {
@@ -11,7 +12,7 @@ const makeMathRow = (firstValue, ratio, rowLength) => {
 };
 
 const extractRandomNumber = (arr) => {
-  const randomIndex = getRandomInRange(0, arr.length);
+  const randomIndex = getRandomInRange(0, arr.length - 1);
   const extractedValue = `${arr[randomIndex]}`;
   const newArr = arr;
   newArr[randomIndex] = '..';
@@ -19,14 +20,21 @@ const extractRandomNumber = (arr) => {
   return [extractedValue, strinArr];
 };
 
-const game = () => {
+const generateRound = () => {
   const randomFirstValue = getRandomInRange(0, 100);
   const randomRatio = getRandomInRange(1, 10);
-  const randomRowLength = getRandomInRange(5, 11);
+  const randomRowLength = getRandomInRange(5, 10);
   const generatedRow = makeMathRow(randomFirstValue, randomRatio, randomRowLength);
-  const [realAnswer, questionRow] = extractRandomNumber(generatedRow);
+  return generatedRow;
+};
+
+const round = () => {
+  const row = generateRound();
+  const [realAnswer, questionRow] = extractRandomNumber(row);
   const generateQuestion = `Question: ${questionRow}`;
   return [generateQuestion, realAnswer];
 };
 
-export default game;
+const rule = 'What number is missing in the progression?';
+
+export default () => runEngine(rule, round);
