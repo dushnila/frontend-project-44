@@ -1,21 +1,28 @@
 /* eslint-disable no-eval */
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const primeCheck = (num) => {
-  if (num === 1) { return 'no'; }
+const isPrime = (num) => {
+  if (num === 1) { return false; }
   let firstDevider = Math.ceil(num / 2);
   while (num % firstDevider !== 0) {
     firstDevider -= 1;
   }
-  const result = firstDevider === 1 ? 'yes' : 'no';
-  return result;
+  return firstDevider === 1;
 };
 
-const game = () => {
-  const randomNumber = getRandomInRange(0, 101);
+const generateRound = () => {
+  const num = getRandomInRange(0, 200);
+  return num;
+};
+
+const round = () => {
+  const randomNumber = generateRound();
   const generateQuestion = `${randomNumber}`;
-  const realAnswer = primeCheck(randomNumber);
+  const realAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [generateQuestion, realAnswer];
 };
 
-export default game;
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+export default () => runEngine(rule, round);
