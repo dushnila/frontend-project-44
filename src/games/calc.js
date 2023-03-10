@@ -1,16 +1,34 @@
-/* eslint-disable no-eval */
-
+import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const game = () => {
-  const randomNumber1 = getRandomInRange(-10, 10);
-  const randomNumber2 = getRandomInRange(0, 10);
-  const mathSymbols = ['*', '+', '-'];
-  const SymbolsChooser = getRandomInRange(0, 3);
-  const mathSymbol = mathSymbols[SymbolsChooser];
-  const generateQuestion = `${randomNumber1} ${mathSymbols[SymbolsChooser]} ${randomNumber2}`;
-  const realAnswer = String(eval(`${randomNumber1} ${mathSymbol} ${randomNumber2}`));
+const generateRound = () => {
+  const firstNum = getRandomInRange(-10, 10);
+  const secondNum = getRandomInRange(0, 10);
+  return [firstNum, secondNum];
+};
+
+const getRandomOperator = () => {
+  const operators = ['+', '-', '*'];
+  return operators[getRandomInRange(0, operators.length - 1)];
+};
+
+const calculation = (num1, num2, operator) => {
+  switch (operator) {
+    case '+': return num1 + num2;
+    case '-': return num1 - num2;
+    case '*': return num1 * num2;
+    default: throw new Error(`Operator - ${operator}, is incorrect!`);
+  }
+};
+
+const round = () => {
+  const [firstNum, secondNum] = generateRound();
+  const operator = getRandomOperator();
+  const generateQuestion = `${firstNum} ${operator} ${secondNum}`;
+  const realAnswer = `${calculation(firstNum, secondNum, operator)}`;
   return [generateQuestion, realAnswer];
 };
 
-export default game;
+const rule = 'What is the result of the expression?';
+
+export default () => runEngine(rule, round);
