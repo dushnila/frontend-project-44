@@ -2,62 +2,66 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f10214d43b5d41e58d14/maintainability)](https://codeclimate.com/github/dushnila/frontend-project-44/maintainability)
 [![Actions Status](https://github.com/dushnila/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/dushnila/frontend-project-44/actions)
 
-## Описание
+## Description
 
-Невероятно увлекательные консольные математические игры ждут тебя сразу после установки.
+Incredibly exciting console math games are waiting for you right after installation.
 
 
-## Как установить 
+## How to install
 
 ```bash
 git clone git@github.com:dushnila/frontend-project-44.git
 ```
-После клонирования перейдите в директорию пакета и выполните команду:
+After cloning, go to the package directory and run the command:
 ```bash
 make install
 ```
-Установка глобально(можно запускать игры в любом месте из командной строки):
+Install globall (you can run games anywhere from the command line):
 
 ```bash
 sudo npm link
 ```
 
-## Как играть 
+## How to play
 
-После установки пакета воспользуйтесь командами, находясь в директории проекта:
+After installing the package, use the commands located in the project directory:
 
 ```bash
 make brain-even
 ``` 
-Ответь четное число или не четное.  
+Answer "yes" if the number is even, otherwise answer "no".  
 <br /><br />
 ```bash
 make brain-calc
 ``` 
-Реши пример.  
+What is the result of the expression? 
+  
 <br /><br />  
 ```bash
 make brain-gcd
 ``` 
-Найди наибольший общий делитель двух чисел.  
+Find the greatest common divisor of given numbers.  
 <br /><br />
+
 ```bash
 make brain-prime
 ``` 
-Ответь простое число или нет.  
+Answer "yes" if given number is prime. Otherwise answer "no". 
+
 <br /><br /> 
 ```bash
 make brain-progression
 ``` 
-Найди недостающее число прогрессии.  
+What number is missing in the progression?
 <br /><br />
-Если пакет был установлен глобально (выполнен npm link) то запуск возможен в любом месте без использования make, например:
+
+If the package was installed globally (with "npm link"), then it can be run anywhere without using "make", for example:
 
 ```bash
 brain-progression
 ``` 
 
-## Примеры игр
+## Examples
 
 
 BRAIN-EVEN game:<br />
