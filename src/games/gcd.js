@@ -18,11 +18,6 @@ const gcdFinder = (number1, number2) => {
 const generateRound = () => {
   const randomNumber1 = getRandomInRange(0, 100);
   const randomNumber2 = getRandomInRange(0, 100);
-  return [randomNumber1, randomNumber2];
-};
-
-const round = () => {
-  const [randomNumber1, randomNumber2] = generateRound();
   const generateQuestion = `${randomNumber1} ${randomNumber2}`;
   const realAnswer = String(gcdFinder(randomNumber1, randomNumber2));
   return [generateQuestion, realAnswer];
@@ -30,4 +25,4 @@ const round = () => {
 
 const rule = 'Find the greatest common divisor of given numbers.';
 
-export default () => runEngine(rule, round);
+export default () => runEngine(rule, generateRound);
