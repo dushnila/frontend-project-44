@@ -1,40 +1,27 @@
 import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const makeMathRow = (firstValue, ratio, rowLength) => {
-  const arr = [];
-  let accum = firstValue;
-  for (let i = 0; i < rowLength; i += 1) {
-    accum += ratio;
-    arr.push(accum);
+const makeProgression = (first, step, length) => {
+  const progression = [];
+  for (let i = 0; i < length; i += 1) {
+    progression.push(first + step * i);
   }
-  return arr;
-};
-
-const extractRandomNumber = (arr) => {
-  const randomIndex = getRandomInRange(0, arr.length - 1);
-  const extractedValue = `${arr[randomIndex]}`;
-  const newArr = arr;
-  newArr[randomIndex] = '..';
-  const strinArr = arr.join(' ');
-  return [extractedValue, strinArr];
+  return progression;
 };
 
 const generateRound = () => {
   const randomFirstValue = getRandomInRange(0, 100);
-  const randomRatio = getRandomInRange(1, 10);
+  const randomStep = getRandomInRange(1, 10);
   const randomRowLength = getRandomInRange(5, 10);
-  const generatedRow = makeMathRow(randomFirstValue, randomRatio, randomRowLength);
-  return generatedRow;
-};
-
-const round = () => {
-  const row = generateRound();
-  const [realAnswer, questionRow] = extractRandomNumber(row);
+  const row = makeProgression(randomFirstValue, randomStep, randomRowLength);
+  const randomIndex = getRandomInRange(0, row.length - 1);
+  const realAnswer = `${row[randomIndex]}`;
+  row[randomIndex] = '..';
+  const questionRow = row.join(' ');
   const generateQuestion = `Question: ${questionRow}`;
   return [generateQuestion, realAnswer];
 };
 
 const rule = 'What number is missing in the progression?';
 
-export default () => runEngine(rule, round);
+export default () => runEngine(rule, generateRound);
