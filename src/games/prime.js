@@ -12,12 +12,7 @@ const isPrime = (num) => {
 };
 
 const generateRound = () => {
-  const num = getRandomInRange(0, 200);
-  return num;
-};
-
-const round = () => {
-  const randomNumber = generateRound();
+  const randomNumber = getRandomInRange(0, 200);
   const generateQuestion = `${randomNumber}`;
   const realAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [generateQuestion, realAnswer];
@@ -25,4 +20,4 @@ const round = () => {
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export default () => runEngine(rule, round);
+export default () => runEngine(rule, generateRound);
