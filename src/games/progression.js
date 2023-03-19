@@ -1,19 +1,19 @@
 import runEngine from '../index.js';
 import getRandomInRange from '../utils.js';
 
-const makeProgression = (first, step, length) => {
-  const progression = [];
+const progression = (first, step, length) => {
+  const result = [];
   for (let i = 0; i < length; i += 1) {
-    progression.push(first + step * i);
+    result.push(first + step * i);
   }
-  return progression;
+  return result;
 };
 
 const generateRound = () => {
   const randomFirstValue = getRandomInRange(0, 100);
   const randomStep = getRandomInRange(1, 10);
   const randomRowLength = getRandomInRange(5, 10);
-  const row = makeProgression(randomFirstValue, randomStep, randomRowLength);
+  const row = progression(randomFirstValue, randomStep, randomRowLength);
   const randomIndex = getRandomInRange(0, row.length - 1);
   const realAnswer = `${row[randomIndex]}`;
   row[randomIndex] = '..';
